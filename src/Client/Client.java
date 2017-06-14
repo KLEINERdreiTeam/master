@@ -17,7 +17,6 @@ public class Client {
 	private XmlInStream inFromServer;
 	private XmlOutStream outToServer;
 	public Client() {
-		BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 		while(true)
 		{
 			try {
