@@ -6,7 +6,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-
 import de.fhac.mazenet.server.networking.XmlInStream;
 import de.fhac.mazenet.server.networking.XmlOutStream;
 import generated.LoginMessageType;
@@ -17,6 +16,10 @@ public class Client {
 	private XmlInStream inFromServer;
 	private XmlOutStream outToServer;
 	public Client() {
+		String trustStore = Client.class.getClassLoader().getResource("truststore.jks").getFile();
+		System.setProperty("javax.net.ssl.trustStore", trustStore);
+		System.setProperty("javax.net.ssl.trustStorePassword", "geheim");
+	    System.out.println("client starts");
 		while(true)
 		{
 			try {
